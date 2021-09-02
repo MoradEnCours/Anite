@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="slider movie-items">
+        <div class="container">
+        </div>
+    </div>
+    <div class="movie-items">
+        <div class="container">
+            <div class="row ipad-width">
+                <div class="col-md-12">
+                    <div class="title-hd">
+                        <h2>Request Anime/Movies</h2>
+                    </div>
+                    <div class="form-style-1 user-pro" action="#">
+                        <form action="." method="post" class="user">
+                            {% csrf_token %}
+                            <h4>Fill up the below details</h4>
+                            <div class="row">
+                                <div class="col-md-6 form-it">
+                                    <label>Name*</label>
+                                    {{ form.name }}
+                                    {#                                    <input type="text" placeholder="edwardkennedy">#}
+                                </div>
+                                <div class="col-md-6 form-it">
+                                    <label>Email Address*</label>
+                                    {{ form.email_address }}
+                                    {#                                    <input type="text" placeholder="edward@kennedy.com">#}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 form-it">
+                                    <label>Anime/Movie Title*</label>
+                                    {{ form.title }}
+                                    {#                                    <input type="text" placeholder="Edward ">#}
+                                </div>
+                                <div class="col-md-6 form-it">
+                                    <label>Season (if any)</label>
+                                    {{ form.season }}
+                                    {#                                    <input type="text" placeholder="Kennedy">#}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 form-it">
+                                    <label>Select Anime or Movie</label>
+                                    {{ form.choice }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-9 form-it">
+                                    <label>Any Message for us/ Details about your Request</label>
+                                    {{ form.message}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <button class="redbtn" type="submit">Request Now</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                {#                <div class="col-md-4">#}
+                {#                    <div class="sidebar">#}
+                {#                        <div class="ads">#}
+                {#                            <img src="images/uploads/ads1.png" alt="" width="336" height="296">#}
+                {#                        </div>#}
+                {#                    </div>#}
+                {#                </div>#}
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

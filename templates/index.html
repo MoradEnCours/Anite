@@ -1,0 +1,403 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+{% block content %}
+    <div class="slider movie-items">
+        <div class="container">
+            <div class="row">
+                <div class="social-link">
+                    <p>Follow us: </p>
+                    <a href="#"><i class="ion-social-facebook"></i></a>
+                    <a href="#"><i class="ion-social-twitter"></i></a>
+                    <a href="#"><i class="ion-social-googleplus"></i></a>
+                    <a href="#"><i class="ion-social-youtube"></i></a>
+                </div>
+                <div class="slick-multiItemSlider">
+                    {% for item in latest_list %}
+                        <div class="movie-item">
+                            <div class="mv-img">
+                                <a href="{{ item.get_absolute_url }}">
+                                    {% thumbnail item.image "274x420" padding=True as im %}
+                                        <img src="{{ im.url }}" alt="" width="{{ im.width }}"
+                                             height="{{ im.height }}">
+                                    {% endthumbnail %}
+                                </a>
+                            </div>
+                            <div class="title-in">
+                                <div class="cate">
+                                    {% if item.language == 'Subbed' %}
+                                        <span class="orange"><a
+                                                href="{{ item.get_absolute_url }}">{{ item.language }}</a></span>
+                                    {% elif item.language == 'Dual Audio' %}
+                                        <span class="yell"><a href="{{ item.get_absolute_url }}">{{ item.language }}</a></span>
+                                    {% else %}
+                                        <span class="green"><a
+                                                href="{{ item.get_absolute_url }}">{{ item.language }}</a></span>
+                                    {% endif %}
+                                    {% if item.editors_pick %}
+                                        <span class="blue"><a
+                                                href="{{ item.get_absolute_url }}">Editor's Pick</a></span>
+                                    {% endif %}
+                                </div>
+                                <h6><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></h6>
+                                <p><i class="ion-android-star"></i><span>{{ item.rating }}</span> /10</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="movie-items">
+        <div class="container">
+            <div class="row ipad-width">
+                <div class="col-md-12">
+                    <div class="title-hd">
+                        <h2>Ongoing Animes</h2>
+                        <a href="{% url 'core:anime-listing' %}" class="viewall">View all <i
+                                class="ion-ios-arrow-right"></i></a>
+                    </div>
+                    <div class="tabs">
+                        <ul class="tab-links">
+                            <li class="active"><a href="#tab1">#Latest</a></li>
+                            <li><a href="#tab2"> #Highly Rated</a></li>
+                            <li><a href="#tab3"> #Top Voted </a></li>
+                            <li><a href="#tab4"> #Editor's List</a></li>
+                        </ul>
+                        <div class="tab-content mt-md-3">
+                            <div id="tab1" class="tab active">
+                                <div class="row">
+                                    <div class="slick-multiItem">
+                                        {% for item in ongoing_list|slice:":25" %}
+                                            <div class="slide-it">
+                                                <div class="movie-item">
+                                                    <div class="mv-img">
+                                                        {% thumbnail item.image "274x420" padding=True as im %}
+                                                            <img src="{{ im.url }}" alt="" width="{{ im.width }}"
+                                                                 height="{{ im.height }}">
+                                                        {% endthumbnail %}
+                                                    </div>
+                                                    <div class="hvr-inner">
+                                                        <a href="{{ item.get_absolute_url }}">Read More <i
+                                                                class="ion-android-arrow-dropright"></i> </a>
+                                                    </div>
+                                                    <div class="title-in">
+                                                        <div class="cate">
+                                                            {% if item.language == 'Subbed' %}
+                                                                <span class="orange"><a
+                                                                        href="{{ item.get_absolute_url }}">{{ item.language }}</a></span>
+                                                            {% elif item.language == 'Dual Audio' %}
+                                                                <span class="yell"><a
+                                                                        href="{{ item.get_absolute_url }}">{{ item.language }}</a></span>
+                                                            {% else %}
+                                                                <span class="green"><a
+                                                                        href="{{ item.get_absolute_url }}">{{ item.language }}</a></span>
+                                                            {% endif %}
+                                                            {% if item.editors_pick %}
+                                                                <span class="blue"><a
+                                                                        href="{{ item.get_absolute_url }}">Editor's Pick</a></span>
+                                                            {% endif %}
+                                                        </div>
+                                                        <h6><a href="{{ item.get_absolute_url }}">{{ item.title }}</a>
+                                                        </h6>
+                                                        <p>
+                                                            <i class="ion-android-star"></i><span>{{ item.rating }}</span>
+                                                            /10</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tab2" class="tab">
+                                <div class="row">
+                                    <div class="slick-multiItem">
+                                        {% for item in rated_list|slice:":25" %}
+                                            <div class="slide-it">
+                                                <div class="movie-item">
+                                                    <div class="mv-img">
+                                                        {% thumbnail item.image "274x420" padding=True as im %}
+                                                            <img src="{{ im.url }}" alt="" width="{{ im.width }}"
+                                                                 height="{{ im.height }}">
+                                                        {% endthumbnail %}
+                                                    </div>
+                                                    <div class="hvr-inner">
+                                                        <a href="{{ item.get_absolute_url }}">Read More <i
+                                                                class="ion-android-arrow-dropright"></i> </a>
+                                                    </div>
+                                                    <div class="title-in">
+                                                        <div class="cate">
+                                                            {% if item.language == 'Subbed' %}
+                                                                <span class="orange"><a
+                                                                        href="{{ item.get_absolute_url }}">{{ item.language }}</a></span>
+                                                            {% elif item.language == 'Dual Audio' %}
+                                                                <span class="yell"><a
+                                                                        href="{{ item.get_absolute_url }}">{{ item.language }}</a></span>
+                                                            {% else %}
+                                                                <span class="green"><a
+                                                                        href="{{ item.get_absolute_url }}">{{ item.language }}</a></span>
+                                                            {% endif %}
+                                                            {% if item.editors_pick %}
+                                                                <span class="blue"><a
+                                                                        href="{{ item.get_absolute_url }}">Editor's Pick</a></span>
+                                                            {% endif %}
+                                                        </div>
+                                                        <h6><a href="{{ item.get_absolute_url }}">{{ item.title }}</a>
+                                                        </h6>
+                                                        <p>
+                                                            <i class="ion-android-star"></i><span>{{ item.rating }}</span>
+                                                            /10</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tab3" class="tab">
+                                <div class="row">
+                                    <div class="slick-multiItem">
+                                        {% for item in voted_list|slice:":25" %}
+                                            <div class="slide-it">
+                                                <div class="movie-item">
+                                                    <div class="mv-img">
+                                                        {% thumbnail item.image "274x420" padding=True as im %}
+                                                            <img src="{{ im.url }}" alt="" width="{{ im.width }}"
+                                                                 height="{{ im.height }}">
+                                                        {% endthumbnail %}
+                                                    </div>
+                                                    <div class="hvr-inner">
+                                                        <a href="{{ item.get_absolute_url }}">Read More <i
+                                                                class="ion-android-arrow-dropright"></i> </a>
+                                                    </div>
+                                                    <div class="title-in">
+                                                        <div class="cate">
+                                                            {% if item.language == 'Subbed' %}
+                                                                <span class="orange"><a
+                                                                        href="{{ item.get_absolute_url }}">{{ item.language }}</a></span>
+                                                            {% elif item.language == 'Dual Audio' %}
+                                                                <span class="yell"><a
+                                                                        href="{{ item.get_absolute_url }}">{{ item.language }}</a></span>
+                                                            {% else %}
+                                                                <span class="green"><a
+                                                                        href="{{ item.get_absolute_url }}">{{ item.language }}</a></span>
+                                                            {% endif %}
+                                                            {% if item.editors_pick %}
+                                                                <span class="blue"><a
+                                                                        href="{{ item.get_absolute_url }}">Editor's Pick</a></span>
+                                                            {% endif %}
+                                                        </div>
+                                                        <h6><a href="{{ item.get_absolute_url }}">{{ item.title }}</a>
+                                                        </h6>
+                                                        <p>
+                                                            <i class="ion-android-star"></i><span>{{ item.rating }}</span>
+                                                            /10</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tab4" class="tab">
+                                <div class="row">
+                                    <div class="slick-multiItem">
+                                        {% for item in editor_list|slice:"0:25" %}
+                                            <div class="slide-it">
+                                                <div class="movie-item">
+                                                    <div class="mv-img">
+                                                        {% thumbnail item.image "274x420" padding=True as im %}
+                                                            <img src="{{ im.url }}" alt="" width="{{ im.width }}"
+                                                                 height="{{ im.height }}">
+                                                        {% endthumbnail %}
+                                                    </div>
+                                                    <div class="hvr-inner">
+                                                        <a href="{{ item.get_absolute_url }}">Read More <i
+                                                                class="ion-android-arrow-dropright"></i> </a>
+                                                    </div>
+                                                    <div class="title-in">
+                                                        <div class="cate">
+                                                            {% if item.language == 'Subbed' %}
+                                                                <span class="orange"><a
+                                                                        href="{{ item.get_absolute_url }}">{{ item.language }}</a></span>
+                                                            {% elif item.language == 'Dual Audio' %}
+                                                                <span class="yell"><a
+                                                                        href="{{ item.get_absolute_url }}">{{ item.language }}</a></span>
+                                                            {% else %}
+                                                                <span class="green"><a
+                                                                        href="{{ item.get_absolute_url }}">{{ item.language }}</a></span>
+                                                            {% endif %}
+                                                            {% if item.editors_pick %}
+                                                                <span class="blue"><a
+                                                                        href="{{ item.get_absolute_url }}">Editor's Pick</a></span>
+                                                            {% endif %}
+                                                        </div>
+                                                        <h6><a href="{{ item.get_absolute_url }}">{{ item.title }}</a>
+                                                        </h6>
+                                                        <p>
+                                                            <i class="ion-android-star"></i><span>{{ item.rating }}</span>
+                                                            /10</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="title-hd">
+                        <h3>Anime Movies Are Found Here</h3>
+                        <a href="{% url 'core:movie-griding' %}" class="viewall">View all <i
+                                class="ion-ios-arrow-right"></i></a>
+                    </div>
+                    <div class="tabs">
+                        <ul class="tab-links">
+                            <li class="active"><a href="#tab1">#Latest</a></li>
+                            <li><a href="#tab2"> #Most Rated</a></li>
+                            <li><a href="#tab3">Here it is</a></li>
+                        </ul>
+                        <!-- <h1 style="color: red";">Hello</h1> -->
+                        <div class="tab-content mt-md-3">
+                            <div id="tab1" class="tab active">
+                                <div class="row">
+                                    <div class="slick-multiItem">
+                                        {% for item in latest_movie_list|slice:":25" %}
+                                        <!-- <h1>Hello</h1> -->
+                                            <div class="slide-it">
+                                                <div class="movie-item">
+                                                    <div class="mv-img">
+                                                        {% thumbnail item.image "274x420" padding=True as im %}
+                                                            <img src="{{ im.url }}" alt="" width="{{ im.width }}"
+                                                                 height="{{ im.height }}">
+                                                        {% endthumbnail %}
+                                                    </div>
+                                                    <div class="hvr-inner">
+                                                        <a href="{{ item.get_absolute_url }}">Read More <i
+                                                                class="ion-android-arrow-dropright"></i> </a>
+                                                    </div>
+                                                    <div class="title-in">
+                                                        <div class="cate">
+                                                            {% if item.language == 'Subbed' %}
+                                                                <span class="orange"><a
+                                                                        href="{{ item.get_absolute_url }}">{{ item.language }}</a></span>
+                                                            {% elif item.language == 'Dual Audio' %}
+                                                                <span class="yell"><a
+                                                                        href="{{ item.get_absolute_url }}">{{ item.language }}</a></span>
+                                                            {% else %}
+                                                                <span class="green"><a
+                                                                        href="{{ item.get_absolute_url }}">{{ item.language }}</a></span>
+                                                            {% endif %}
+                                                            {% if item.editors_pick %}
+                                                                <span class="blue"><a
+                                                                        href="{{ item.get_absolute_url }}">Editor's Pick</a></span>
+                                                            {% endif %}
+                                                        </div>
+                                                        <h6><a href="{{ item.get_absolute_url }}">{{ item.title }}</a>
+                                                        </h6>
+                                                        <p>
+                                                            <i class="ion-android-star"></i><span>{{ item.rating }}</span>
+                                                            /10</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tab2" class="tab">
+                                <div class="row">
+                                    <div class="slick-multiItem">
+                                        {% for item in rated_movie_list|slice:":25" %}
+                                            <div class="slide-it">
+                                                <div class="movie-item">
+                                                    <div class="mv-img">
+                                                        {% thumbnail item.image "274x420" padding=True as im %}
+                                                            <img src="{{ im.url }}" alt="" width="{{ im.width }}"
+                                                                 height="{{ im.height }}">
+                                                        {% endthumbnail %}
+                                                    </div>
+                                                    <div class="hvr-inner">
+                                                        <a href="{{ item.get_absolute_url }}">Read More <i
+                                                                class="ion-android-arrow-dropright"></i> </a>
+                                                    </div>
+                                                    <div class="title-in">
+                                                        <div class="cate">
+                                                            {% if item.language == 'Subbed' %}
+                                                                <span class="orange"><a
+                                                                        href="{{ item.get_absolute_url }}">{{ item.language }}</a></span>
+                                                            {% elif item.language == 'Dual Audio' %}
+                                                                <span class="yell"><a
+                                                                        href="{{ item.get_absolute_url }}">{{ item.language }}</a></span>
+                                                            {% else %}
+                                                                <span class="green"><a
+                                                                        href="{{ item.get_absolute_url }}">{{ item.language }}</a></span>
+                                                            {% endif %}
+                                                            {% if item.editors_pick %}
+                                                                <span class="blue"><a
+                                                                        href="{{ item.get_absolute_url }}">Editor's Pick</a></span>
+                                                            {% endif %}
+                                                        </div>
+                                                        <h6><a href="{{ item.get_absolute_url }}">{{ item.title }}</a>
+                                                        </h6>
+                                                        <p>
+                                                            <i class="ion-android-star"></i><span>{{ item.rating }}</span>
+                                                            /10</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {#                <div class="col-md-4">#}
+                {#                    <div class="sidebar">#}
+                {#                        <div class="ads">#}
+                {#                            <img src="images/uploads/ads1.png" alt="" width="336" height="296">#}
+                {#                        </div>#}
+                {#                    </div>#}
+                {#                </div>#}
+            </div>
+        </div>
+    </div>
+
+    <div class="trailers">
+        <div class="container">
+            <div class="row ipad-width">
+                <div class="col-md-12">
+                    <div class="title-hd">
+                        <h2>Trailers, AMVs, Videos</h2>
+                        <a href="#" class="viewall">View all <i class="ion-ios-arrow-right"></i></a>
+                    </div>
+                    <div class="videos">
+                        <div class="slider-for-2 video-ft">
+                            {% for item in videos %}
+                                <div>
+                                    <iframe class="item-video" src="#"
+                                            data-src="{{ item.url }}"></iframe>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="slider-nav-2 thumb-ft">
+                            {% for item in videos %}
+                                <div class="item">
+                                    <div class="trailer-img">
+                                        <img src="{{ item.image.url }}" alt="photo by Barn Images" width="4096"
+                                             height="2737">
+                                    </div>
+                                    <div class="trailer-infor">
+                                        <h4 class="desc">{{ item.title }}</h4>
+                                        <p>{{ item.runtime }}</p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
