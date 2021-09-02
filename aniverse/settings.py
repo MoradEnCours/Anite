@@ -101,3 +101,5 @@ CKEDITOR_CONFIGS = {
         'width': 900,
     },
 }
+
+WSGI_APPLICATION = "aniverse.wsgi.application"
