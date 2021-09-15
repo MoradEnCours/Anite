@@ -7155,21 +7155,7 @@
   .overlay .login-content .social-btn-2 .tw {
     background-color: #00b9ef;
   }
-  .slider {
-    background: url("../images/uploads/slider-bg.jpg") no-repeat;
-    background-position: center;
-    text-align: center;
-    background-size: cover;
-    position: relative;
-    padding-top: 200px;
-    padding-bottom: 50px;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+
   .slider .movie-item {
     margin-right: 15px;
   }
@@ -8277,7 +8263,8 @@
     }
   }
   footer {
-    background: url("../images/uploads/ft-bg.jpg") no-repeat;
+    color: #00b9ef;
+    background: #00b9ef;
     background-position: center;
     background-size: cover;
   }

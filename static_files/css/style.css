@@ -4576,6 +4576,17 @@ ul {
 .latestnew {
   padding: 70px 0;
   background-color: #020d18;
+  /* background: url("../default5.jpg") no-repeat; (Old version) */  
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  opacity: 1;
+  background-image: 
+  linear-gradient(
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.3)
+  ),
+  url("../default5.jpg");
 }
 .movie-items .tab-links {
   position: relative;
@@ -4946,7 +4957,18 @@ ul {
   margin-left: -15px;
 }
 .trailers {
-  background-color: #06121e;
+  /* background-color: #06121e; */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  opacity: 1;
+  background-image: 
+  linear-gradient(
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.3)
+  ),
+  url("../default6.jpg");
+
   padding: 70px 0;
 }
 .trailers .trailer-img {
@@ -5001,7 +5023,7 @@ ul {
   width: 35%;
   height: 435px;
   padding: 30px 0;
-  background-color: #0b1a2a;
+  /* background-color: #0b1a2a; */
   position: relative;
 }
 @media (max-width: 991px) {
@@ -7156,7 +7178,7 @@ p.ceb-single {
   background-color: #00b9ef;
 }
 .slider {
-  background: url("../images/uploads/slider-bg.jpg") no-repeat;
+  /* background: url("../default.jpg") no-repeat; */
   background-position: center;
   text-align: center;
   background-size: cover;
@@ -7169,6 +7191,14 @@ p.ceb-single {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-image: 
+  linear-gradient(
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.1)
+  ),
+  url("../default.jpg");
 }
 .slider .movie-item {
   margin-right: 15px;
@@ -8277,9 +8307,17 @@ header#headerv3-light {
   }
 }
 footer {
-  background: url("../images/uploads/ft-bg.jpg") no-repeat;
+  /* background: url("../default7.jpg") no-repeat 60%; */
   background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-image: 
+  linear-gradient(
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.3)
+  ),
+  url("../default7.jpg");
 }
 footer .flex-parent-ft {
   padding: 80px 0 60px 0;
