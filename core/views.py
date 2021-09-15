@@ -294,7 +294,7 @@ class CreateArticle(View):
     
 class BlogDetailView(DetailView):
     model = ArticleItems
-    template_name = "preloader.html"
+    template_name = "blogdetail.html"
 
 
 class RegisterAccount(View):

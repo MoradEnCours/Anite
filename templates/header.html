@@ -39,10 +39,10 @@
                             community <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </a>
                         <ul class="dropdown-menu level1">
-                            <li><a href="userfavoritegrid.html">user favorite grid</a></li>
-                            <li><a href="userfavoritelist.html">user favorite list</a></li>
-                            <li><a href="userprofile.html">user profile</a></li>
-                            <li class="it-last"><a href="userrate.html">user rate</a></li>
+                            <li><a href="/">user favorite grid</a></li>
+                            <li><a href="/">user favorite list</a></li>
+                            <li><a href="/">user profile</a></li>
+                            <li class="it-last"><a href="/">user rate</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -52,9 +52,9 @@
                             pages <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </a>
                         <ul class="dropdown-menu level1">
-                            <li><a href="{% url 'core:landing' %}">Landing</a></li>
-                            <li><a href="404.html">404 Page</a></li>
-                            <li class="it-last"><a href="{% url 'core:coming-soon' %}">Coming soon</a></li>
+                            <li><a href="{% url 'core:landing' %}">Placeholder alt Landing</a></li>
+                            <li><a href="{% url 'core:blog-list' %}">Blog List</a></li>
+                            <li class="it-last"><a href="{% url 'core:create-article' %}">Create Article</a></li>
                         </ul>
                     </li>
                     <li><a href="{% url 'core:request-us' %}">Request Anime</a></li>
@@ -81,7 +81,7 @@
         <!-- top search form -->
         <form action="{% url 'core:search' %}" class="top-search m-md-2">
             <input type="text" name="search_item"
-                   placeholder="Search for a movie, TV Show or celebrity that you are looking for">
+                   placeholder="Search for an anime or movie series that you are interested in.">
         </form>
 
     </div>

@@ -35,7 +35,7 @@ urlpatterns = [
          name="character-details"),
     path('coming-soon/', ComingSoonView.as_view(), name="coming-soon"),
     path('404/', ErrorView.as_view()),
-    path('bloglist/', BlogListView.as_view()),
+    path('bloglist/', BlogListView.as_view(), name="blog-list"),
     path('bloglist/<slug>', BlogDetailView.as_view(), name="blog-details"),
     path('blogdetail/', BlogDetailView.as_view()),
     path('bloglist/create-article/',
